@@ -21,7 +21,7 @@ class TodoItem implements TodoItemInterface {
 class TodoList implements TodoListInterface {
   tasks: Array<TodoItem> = [];
   constructor() {}
-  addTask(task: TodoItem): void {
+  addTask(task: TodoItem): number {
     if (task) {
       this.tasks.push(task);
       console.log(`
@@ -30,6 +30,7 @@ class TodoList implements TodoListInterface {
       con la fecha ${task.updatedAt}
       `);
     }
+    return this.tasks.length;
   }
   listAllTasks() {
     this.tasks.forEach(element => console.log(element));
@@ -39,7 +40,7 @@ class TodoList implements TodoListInterface {
       let deleteItem = this.tasks.splice(this.tasks.indexOf(task), 1);
       console.log(`============ITEM REMOVED =============`);
       console.log(deleteItem);
-      console.log(`tarea removida: ${task}`);
+      console.log(`tarea removida: ${task.title}`);
       console;
       return this.tasks.length;
     }

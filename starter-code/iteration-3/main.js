@@ -25,6 +25,7 @@ var TodoList = /** @class */ (function () {
             this.tasks.push(task);
             console.log("\n      Agregaste una task a la lista : " + task.title + " \n      en status " + task.status + "\n      con la fecha " + task.updatedAt + "\n      ");
         }
+        return this.tasks.length;
     };
     TodoList.prototype.listAllTasks = function () {
         this.tasks.forEach(function (element) { return console.log(element); });
@@ -34,7 +35,7 @@ var TodoList = /** @class */ (function () {
             var deleteItem = this.tasks.splice(this.tasks.indexOf(task), 1);
             console.log("============ITEM REMOVED =============");
             console.log(deleteItem);
-            console.log("tarea removida: " + task);
+            console.log("tarea removida: " + task.title);
             console;
             return this.tasks.length;
         }
